@@ -1,0 +1,8 @@
+
+<p>Product Name: <%= line_item.product.name %> </p>
+<p>Product:  description<%= line_item.product.description %></p>
+<p>Price of Item: <%= number_to_currency(line_item.product.price)%></p>
+<p>Quantity: <%= line_item.quantity %></p>
+<p>Total price: <%= number_to_currency(line_item.total_price_cents/100)%></p>
+
+

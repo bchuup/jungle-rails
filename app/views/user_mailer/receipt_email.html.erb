@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Thanks for shopping</h1>
+    <p>
+        <% @order.line_items.each do |line_item| %>
+          <%= render partial: 'item', locals: { line_item: line_item } %>
+        <% end %>
+    </p>
+
+
+  </body>
+</html>
