@@ -8,6 +8,14 @@
 </head>
 <body>
 
+  <div class="signin">
+    <% if current_user %>
+      Hello <%= current_user.first_name %> | <%= link_to "Logout", "sessions/#{current_user.id}" , :method => :delete %>
+    <% else %>
+      <%= link_to 'Login', '/sessions/new' %> | <%= link_to 'Signup', '/users/new' %>
+    <% end %>
+  </div>
+
   <%= render 'layouts/top_nav' %>
 
   <main class="container">
