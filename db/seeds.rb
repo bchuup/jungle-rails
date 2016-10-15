@@ -26,6 +26,9 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+
+
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."
@@ -129,5 +132,15 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+puts "re-creating reviews"
+
+Review.destroy_all
+
+review1 = Review.create!({user_id: 1, product_id: 5, rating: 1, description: "wooooo"})
+review2 = Review.create!({user_id: 1, product_id: 4, rating: 1, description: "wooooo"})
+review3 = Review.create!({user_id: 1, product_id: 3, rating: 5, description: "wooooo"})
+review4 = Review.create!({user_id: 1, product_id: 2, rating: 5, description: "wooooo"})
+review5 = Review.create!({user_id: 1, product_id: 1, rating: 5, description: "wooooo"})
 
 puts "DONE!"

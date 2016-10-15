@@ -23,7 +23,39 @@
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
         </dl>
+        <div>
+          <% if session[:user_id] %>
+            <dl class="dl-horizontal">
+            <dd>Write a review:</dd>
+          <%= form_for(@review, :url => product_reviews_path(@product)) do |r| %>
+            <dt>Description</dt>
+            <dd>  <%= r.text_area :description %> </dd> <br>
+            <dt> Rating out of 5 </dt>
+            <dd> <%= r.select :rating, [1, 2, 3, 4, 5] %> </dd><br>
+
+            <dd> <%= r.submit %> </dd>
+          <%end%>
+        <%end%>
+          <dl>
+            <dl class="dl-horizontal">
+              <dt>Reviews</dt>
+
+              <% @reviews.order(id: :desc).each do |review| %>
+                <dd><%= "Rater: #{review.user.first_name} #{review.user.last_name}" %>
+                  <br>
+                <dd><%= "Date: #{review.created_at.strftime("%A %B %d, %Y")}" %>
+                  <br>
+                <dd><%= "Rating: #{review.rating}" %>
+                  <br>
+                  <%="Description: #{review.description}"%>
+                </dd>
+              <br>
+            <%end%>
+          </dl>
+        </div>
       </div>
+
+
     </div>
 
   </article>
