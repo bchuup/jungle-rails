@@ -1,6 +1,12 @@
 <h1>Signup!</h1>
 
+
 <div>
+
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+    <% end %>
   <ul>
     <%= form_for :user, url: '/users' do |f| %>
 
