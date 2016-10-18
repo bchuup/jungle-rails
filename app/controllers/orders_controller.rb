@@ -9,8 +9,8 @@ class OrdersController < ApplicationController
 
     if order.valid?
       empty_cart!
-
-     UserMailer.receipt_email(order, current_user).deliver_now
+     # UserMailer wont work in production
+     # UserMailer.receipt_email(order, current_user).deliver_now
 
       redirect_to order, notice: 'Your Order has been placed.'
     else
