@@ -5,6 +5,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of learning Rail
 ## Setup
 
 1. create .env file
+
 STRIPE_PUBLISHABLE_KEY= PLACE KEY HERE
 
 STRIPE_SECRET_KEY= PLACE KEY HERE
