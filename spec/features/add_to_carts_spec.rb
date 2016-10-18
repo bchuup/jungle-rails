@@ -20,10 +20,10 @@ RSpec.feature "Visitor navigates to product details page", type: :feature, js: t
   scenario "They see the product details" do
     # ACT
     visit root_path
-    click_on 'Details'
+    click_on 'Add'
     # DEBUG / VERIFY
     sleep 1
     save_screenshot
-    expect(page).to have_content 'Quantity'
+    expect(page).to have_content 'My Cart (1)'
   end
 end
