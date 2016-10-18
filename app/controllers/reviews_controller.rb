@@ -10,6 +10,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find params[:id]
+    puts params
+    @review.destroy
+    redirect_to :back, notice: 'Review deleted!'
+  end
+
   private
     def review_params
       new_params = params.require(:review).permit(

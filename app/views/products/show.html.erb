@@ -41,6 +41,7 @@
               <dt>Reviews</dt>
 
               <% @reviews.order(id: :desc).each do |review| %>
+
                 <dd><%= "Rater: #{review.user.first_name} #{review.user.last_name}" %>
                   <br>
                 <dd><%= "Date: #{review.created_at.strftime("%A %B %d, %Y")}" %>
@@ -48,7 +49,11 @@
                 <dd><%= "Rating: #{review.rating}" %>
                   <br>
                   <%="Description: #{review.description}"%>
-                </dd>
+                <% if session[:user_id] == review.user.id %>
+                  <dd>
+                    <%= link_to fa_icon('trash'), product_review_path(@product, review), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+                  </dd>
+                <% end %>
               <br>
             <%end%>
           </dl>
