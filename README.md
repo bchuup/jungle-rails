@@ -24,3 +24,12 @@ SECRET_TOKEN_KEY_BASE= PLACE SECRET HERE
 
 More information in their docs: <https://stripe.com/docs/testing#cards>
 
+
+## start rails server
+bin/rails server
+
+## when using vagrant
+bin/rails s -b 0.0.0.0
+
+## port:
+localhost:3000
